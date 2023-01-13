@@ -7,16 +7,16 @@ Here are the tools and libraries that were used for this code test.
 
 ### Background
 
-Raw dataset, [movies.csv]() contains about movies information that include films and tv shows. This raw dataset have the following columns such as:
-* MOVIES: the title of a film or a tv show.
-* YEAR: release year or end year of movies.
-* GENRE: a movie category that can be more than one.
-* RATING: a rating of the movie.
-* ONE-LINE: an overview of the movie.
-* STARS: a director, a star, or both of the movie. Both director and star can be more than one.
-* VOTES: a votes count of the movie.
-* RunTime: total duration of the movie.
-* Gross: Total revenue of the movie.
+Raw dataset, [movies.csv](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/movies.csv) contains about movies information that include films and tv shows. This raw dataset have the following columns such as:
+* **MOVIES**: the title of a film or a tv show.
+* **YEAR**: release year or end year of movies.
+* **GENRE**: a movie category that can be more than one.
+* **RATING**: a rating of the movie.
+* **ONE-LINE**: an overview of the movie.
+* **STARS**: a director, a star, or both of the movie. Both director and star can be more than one.
+* **VOTES**: a votes count of the movie.
+* **RunTime**: total duration of the movie.
+* **Gross**: Total revenue of the movie.
 
 From this raw dataset, we have to:
 1. Create a data model to describe entities, attributes, and relationships.
@@ -33,7 +33,7 @@ From this raw dataset, we have to:
 
 The data model as follows:
 
-[image]()
+![alt text](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/ER_Diagram.png)
 
 The entities that are used to create a data model as follows:
 1. **movies**
