@@ -162,7 +162,7 @@ genre_and_rating_table AS (
 	JOIN genre_comedy AS gc
 		ON mi.movie_id = gc.movie_id
 )
-SELECT m.title, m.release_year, gst.rating, m.gross
+SELECT m.title, m.release_year, gst.rating
 FROM movies AS m
 JOIN genre_and_rating_table AS gst
 	ON m.movie_id = gst.movie_id
@@ -197,7 +197,7 @@ director_and_star_table AS (
 	JOIN movie_star_table AS mst
 		ON mdt.movie_id = mst.movie_id
 )
-SELECT m.title, m.release_year, mi.rating, dst.director_name, dst.star_name
+SELECT m.title, m.release_year, mi.rating
 FROM director_and_star_table AS dst
 JOIN movies_information AS mi
 	ON dst.movie_id = mi.movie_id

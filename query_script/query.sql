@@ -90,7 +90,7 @@ director_and_star_table AS (
 	JOIN movie_star_table AS mst
 		ON mdt.movie_id = mst.movie_id
 )
-SELECT m.title, m.release_year, mi.rating, dst.director_name, dst.star_name
+SELECT m.title, m.release_year, mi.rating
 FROM director_and_star_table AS dst
 JOIN movies_information AS mi
 	ON dst.movie_id = mi.movie_id
