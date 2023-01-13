@@ -35,7 +35,15 @@ The data model as follows:
 
 **Conceptual Data Model**
 
-![alt text](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/ER_Diagram.png)
+![alt text](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/conceptual_erd.png)
+
+**Logical Data Model**
+
+![alt text](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/logical_erd.png)
+
+**Physical Data Model**
+
+![alt text](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/physical_erd.png)
 
 The entities that are used to create a data model as follows:
 1. **movies**:
@@ -61,7 +69,7 @@ The entities that are used to create a data model as follows:
    
 ### Database Creation
 
-The database is created by using **CREATE TABLE** statement in the PostgreSQL. The query is at [create_table.sql]().
+The database are created by using **CREATE TABLE** and **ALTER TABLE** (for constraints) statement in the PostgreSQL. The query is at [create_table_with_constraints.sql](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/create_table_with_constraints.sql).
 
 ### ETL Pipeline
 
