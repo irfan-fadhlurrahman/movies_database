@@ -7,16 +7,16 @@ Here are the tools and libraries that were used for this code test.
 
 ### Background
 
-Raw dataset, [movies.csv]() contains about movies information that include films and tv shows. This raw dataset have the following columns such as:
-* MOVIES: the title of a film or a tv show.
-* YEAR: release year or end year of movies.
-* GENRE: a movie category that can be more than one.
-* RATING: a rating of the movie.
-* ONE-LINE: an overview of the movie.
-* STARS: a director, a star, or both of the movie. Both director and star can be more than one.
-* VOTES: a votes count of the movie.
-* RunTime: total duration of the movie.
-* Gross: Total revenue of the movie.
+Raw dataset, [movies.csv](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/movies.csv) contains information about movies that include films and tv shows. This raw dataset have the following columns such as:
+* **MOVIES**: the title of a film or a tv show.
+* **YEAR**: release year or end year of movies.
+* **GENRE**: a movie category that can be more than one.
+* **RATING**: a rating of the movie.
+* **ONE-LINE**: an overview of the movie.
+* **STARS**: a director, a star, or both of the movie. Both director and star can be more than one.
+* **VOTES**: total votes count of the movie.
+* **RunTime**: total duration of the movie.
+* **Gross**: Total revenue of the movie.
 
 From this raw dataset, we have to:
 1. Create a data model to describe entities, attributes, and relationships.
@@ -26,63 +26,63 @@ From this raw dataset, we have to:
     * Number of unique film titles
     * Film Title, Year of Release, and Rating of the film starring Lena Headey Sort By Year of Release.
     * The name of the director and total gross of the films that have been directed.
-    * Film Title, Year of Release, and Rating of 5 films that have comedy genre with the largest gross
-    * Film Title, Year of Release and Rating of the film directed by Martin Scorsese and starring Robert De Niro
+    * Film Title, Year of Release, and Rating of 5 films that have comedy genre with the largest gross.
+    * Film Title, Year of Release and Rating of the film directed by Martin Scorsese and starring Robert De Niro.
     
 ### Data Model
 
 The data model as follows:
 
-[image]()
+![alt text](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/ER_Diagram.png)
 
 The entities that are used to create a data model as follows:
-1. **movies**
-   This entity contains attributes such as **movie_id, title, release_year, and gross**. The reason to store all attributes in this entity beacuse a movie can only have one title, one release year, and one gross.
+1. **movies**:
+   This entity contains attributes such as **movie_id, title, release_year, and gross**. The reason to store all attributes in this entity because a movie can only have one title, one release year, and one gross.
 
-2. **genre**
-   Genre's attributes are **genre_id and genre_name**. A one movie can have multiple genre, so it is better to store their id and their unique values in the seperate entity.
+2. **genre**:
+   Genre's attributes are **genre_id and genre_name**. A one movie can have multiple genre, so it is better to store their id and their unique values in the separate entity.
 
-3. **person**
-   Person's attributes are **person_id** and **person_name**. This table are created to avoid duplication of a director and a star that could be same for a movie.
+3. **person**:
+   Person's attributes are **person_id** and **person_name**. This table is created to avoid duplication of a director and a star that could be the same for a movie.
 
-4. **movies_information**
-   This entity contains **info_id**, **movie_id**, **runtime**, **rating**, **votes_count**, and **overview**. A movie can have all attribures more than one because there is tv shows.
+4. **movies_information**:
+   This entity contains **info_id**, **movie_id**, **runtime**, **rating**, **votes_count**, and **overview**. A movie can have all attributes more than one because there is tv shows.
    
-5. **movies_genre**
+5. **movies_genre**:
    This entity contains **movie_id** and **genre_id** to connect the relationship between movies entity and genre entity.
    
-6. **movies_director**
+6. **movies_director**:
    This entity contains **director_id**, **movie_id**, and **person_id** to connect the relationship between person entity and movie entity.
    
-6. **movies_star**
+6. **movies_star**:
    This entity contains **star_id**, **movie_id**, and **person_id** to connect the relationship between person entity and movie entity.
    
 ### Database Creation
 
-The database is created by using CREATE TABLE statement in the PostgreSQL. The query is at [create_table.sql]().
+The database is created by using **CREATE TABLE** statement in the PostgreSQL. The query is at [create_table.sql]().
 
 ### ETL Pipeline
 
 There are five scripts to build the ETL pipeline for importing the movies.csv dataset into created database such
-* [database_credentials.py]()
-* [cleaning.py]()
-* [transform.py]()
-* [ingest.py]()
-* [etl.py]()
+* [database_credentials.py](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/database_credentials.py): To define the absolute path of folder and the data type of each attributes for ingestion with pandas.
+* [cleaning.py](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/cleaning.py): To perform data cleaning on the dataset.
+* [transform.py](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/transform.py): To separate the cleaned dataset into seven dataset for storing in the relational database.
+* [ingest.py](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/ingest.py): To ingest all of the seven dataset into the created database.
+* [etl.py](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/etl.py): To run all four scripts above as one script.
 
 The step-by-step of ETL pipeline as follows:
 1. Extract
     * Download the movies.csv from Google Drive then read it as dataframe in Python.
 
 2. Transform
-    * Clean the dataset to remove duplication, remove unneccassery character in the rows of dataframe, and rename the columns.
-    * Seperate clean dataset into seven tables as per created data model.
+    * Clean the dataset to remove duplication, remove unnecessary character in the rows of dataframe, and rename the columns.
+    * Separate clean dataset into seven tables as per created data model.
 
 3. Load
    * Build a connection to postgres database then ingest each table by using pandas.
 
 ### Query
-All neccessary data have been imported to the created database. The following below are the query for specific tasks. You can run the query with this file [here]().
+All necessary data have been imported to the created database. The following below are the query for specific tasks. You can run the query with this file [here](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/query.sql).
 
 #### a. Number of unique film titles
 ```
@@ -189,9 +189,3 @@ JOIN movies_information AS mi
 JOIN movies AS m
 	ON dst.movie_id = m.movie_id
 ```
-
-
-
-
-
-   
