@@ -46,8 +46,6 @@ def transform(df):
     for filename, df_table in dataframe_tuple:
         df_table.to_csv(f'{DATA_LOCATION}/data/{filename}.csv', sep=',', index=False)
     
-    # return df_movies, df_genre, df_person, df_movies_information, df_movies_genre, df_movies_director, df_movies_star
-    
     return {
         "movies": df_movies,
         "genre": df_genre,
@@ -65,15 +63,6 @@ def remove_decimal(row):
         return row
 
 def create_table_for_movies_role(df, df_movies, df_person, role='director'):
-    """
-    star_id        0
-    movie_id       0
-    person_id    555
-    
-    director_id       0
-    movie_id          0
-    person_id      2889
-    """
     # Copy to avoid overwrite original dataframe
     selected_columns = ['title', f'{role}_name']
     df_table = df[selected_columns].copy()
@@ -94,7 +83,6 @@ def create_table_for_movies_role(df, df_movies, df_person, role='director'):
         how='left'
     )
     # Merge both df_table and df_person
-    # df_merge = df_merge.fillna('-')
     df_merge.columns = ['title', 'person_name', 'movie_id']
     df_merge = pd.merge(
         df_merge,
@@ -112,7 +100,7 @@ def create_table_for_movies_role(df, df_movies, df_person, role='director'):
     columns_reorder = [f'{role}_id', 'movie_id', 'person_id']
     
     # Fill missing values with '-'
-    df_merge = df_merge[columns_reorder]#.fillna('-')
+    df_merge = df_merge[columns_reorder].copy()
     
     # Remove decimal (.0) if any
     for col in df_merge.columns.tolist():
@@ -152,7 +140,7 @@ def create_table_for_movies_genre(df, df_movies, df_genre):
     columns_reorder = ['movie_id', 'genre_id']
         
     # Fill missing values with '-'    
-    df_merge = df_merge[columns_reorder].reset_index(drop=True)#.fillna('-')
+    df_merge = df_merge[columns_reorder].reset_index(drop=True)
     
     # Remove decimal (.0) if any
     for col in df_merge.columns.tolist():
@@ -195,7 +183,7 @@ def create_table_for_movies_information(df, df_movies):
     columns_reorder = ['info_id', 'movie_id', 'runtime', 'rating', 'votes_count', 'overview']
     
     # Fill missing values with '-'
-    df_merge = df_merge[columns_reorder]#.fillna('-')
+    df_merge = df_merge[columns_reorder]
     
     # Remove decimal (.0) if any
     for col in df_merge.columns.tolist():
@@ -231,8 +219,7 @@ def create_table_for_person(df):
     ]
     df_table = pd.DataFrame(person_name_list, columns=['person_id', 'person_name'])
     
-    # Fill missing values with '-'
-    return df_table#.fillna('-')
+    return df_table
 
 def create_table_for_genre(df):
     # Copy to avoid overwrite original dataframe
@@ -246,27 +233,17 @@ def create_table_for_genre(df):
     genre_name_list = df_table['genre_name'].unique().tolist()
     
     # add index
-    # TO BE REMOVE: Remove nan from the above list
     genre_name_list = [
         (idx, genre)
         for idx, genre in enumerate(genre_name_list, start=1)
-        # if isinstance(genre, str)
     ]
     
     # Create a dataframe with index
     df_table = pd.DataFrame(genre_name_list, columns=['genre_id', 'genre_name'])
     
-    # Fill missing values with '-'
-    return df_table#.fillna('-')
+    return df_table
 
 def create_table_for_movies(df):
-    """
-    Missing value tracking
-    movie_id           0
-    title              0
-    release_year     533
-    gross           6026
-    """
     # Copy to avoid overwrite original dataframe
     selected_columns = ['title', 'release_year', 'gross']
     df_table = df[selected_columns].copy()
@@ -280,10 +257,4 @@ def create_table_for_movies(df):
     # Add one to movie_id so it started from 1
     df_table['movie_id'] = df_table['movie_id'] + 1
     
-#     # Fill missing values with '-'
-#     df_table = df_table.fillna('-')
-    
-#     # Remove decimal (.0) from gross column
-#     df_table['gross'] = df_table['gross'].apply(remove_decimal)
-    
-    return df_table#.fillna('-')
+    return df_table

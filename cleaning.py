@@ -27,9 +27,8 @@ def cleaning(df):
     # Change GENRE dtype to list
     df['GENRE'] = df['GENRE'].apply(convert_genre_dtype)
     
-    # TO BE RECHECKED: Change VOTES and release_year dtype to integer
+    # Remove commas from VOTES
     df['votes_count'] = df['VOTES'].apply(remove_commas_in_votes)
-    # df['release_year'] = pd.to_numeric(df['release_year'], errors='coerce', downcast='integer')
     
     # Replace 'Add a Plot' in ONE-LINE column and create overview column
     df['overview'] = df['ONE-LINE'].apply(get_movie_overview)
@@ -77,7 +76,6 @@ def remove_commas_in_votes(row):
         return np.nan
 
 def get_release_year(row):
-    """Search the first four digits in text"""
     if isinstance(row, str):
         if re.search(r'\([I]+\)', row):
             row = re.sub(r'\([I]+\)', '', row)

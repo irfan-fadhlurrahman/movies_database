@@ -33,6 +33,8 @@ From this raw dataset, we have to:
 
 The data model as follows:
 
+**Conceptual Data Model**
+
 ![alt text](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/ER_Diagram.png)
 
 The entities that are used to create a data model as follows:
@@ -64,7 +66,7 @@ The database is created by using **CREATE TABLE** statement in the PostgreSQL. T
 ### ETL Pipeline
 
 There are five scripts to build the ETL pipeline for importing the movies.csv dataset into created database such
-* [database_credentials.py](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/database_credentials.py): To define the absolute path of folder and the data type of each attributes for ingestion with pandas.
+* [database_credentials.py](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/database_credentials.py): To create an engine for database connection to Python and to define absolute path of a folder and the data type of each attributes for ingestion with pandas.
 * [cleaning.py](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/cleaning.py): To perform data cleaning on the dataset.
 * [transform.py](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/transform.py): To separate the cleaned dataset into seven dataset for storing in the relational database.
 * [ingest.py](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/ingest.py): To ingest all of the seven dataset into the created database.
