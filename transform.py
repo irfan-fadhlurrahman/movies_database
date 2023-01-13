@@ -1,5 +1,5 @@
 """
-Create entities as per conceptual data model in the ER Diagram. Then, all created tables are saved as csv file to data folder.
+Create entities as per conceptual data model in the ER Diagram (ER_Diagram.png). Then, all created tables are saved as csv file to data folder.
 
 The following below are the entity with its attributes:
 1. movies: movie_id, title, release_year, gross
@@ -149,6 +149,16 @@ def create_table_for_movies_genre(df, df_movies, df_genre):
     return df_merge
     
 def create_table_for_movies_information(df, df_movies):
+    """
+    Missing value tracker:
+    info_id           0
+    movie_id          0
+    title             0
+    runtime        2435
+    rating         1234
+    votes_count    5149
+    overview        652
+    """
     # Copy to avoid overwrite original dataframe
     selected_columns = ['title', 'runtime', 'rating', 'votes_count', 'overview']
     df_table = df[selected_columns].copy()
