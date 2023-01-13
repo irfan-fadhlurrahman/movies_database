@@ -95,12 +95,14 @@ The step-by-step of ETL pipeline as follows:
 All necessary data have been imported to the created database. The following below are the query for specific tasks. You can run the query with this file [here](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/query_script/query.sql).
 
 #### a. Number of unique film titles
+Query results: [Task_4a.csv](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/query_result/Task_4a.csv)
 ```
 SELECT COUNT(DISTINCT(title)) AS num_of_unique_film_titles
 FROM movies;
 ```
 
 #### b. Film Title, Year of Release, and Rating of the film starring Lena Headey Sort By Year of Release
+Query results: [Task_4b.csv](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/query_result/Task_4b.csv)
 ```
 -- First Join
 WITH movie_star_table AS (
@@ -126,6 +128,7 @@ JOIN rating_and_person_table AS rpt
 ORDER BY m.release_year;
 ```
 #### c. The name of the director and total gross of the films that have been directed
+Query results: [Task_4c.csv](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/query_result/Task_4c.csv)
 ```
 -- First Join
 WITH movie_director_table AS (
@@ -144,6 +147,7 @@ GROUP BY mdt.person_name, m.gross;
 ```
 
 #### d. Film Title, Year of Release, and Rating of 5 films that have comedy genre with the largest gross
+Query results: [Task_4d.csv](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/query_result/Task_4d.csv)
 ```
 WITH genre_comedy AS (
 	SELECT mg.movie_id, mg.genre_id, g.genre_name
@@ -168,6 +172,7 @@ LIMIT 5;
 ```
 
 #### e. Film Title, Year of Release and Rating of the film directed by Martin Scorsese and starring Robert De Niro
+Query results: [Task_4e.csv](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/query_result/Task_4e.csv)
 ```
 -- First Join
 WITH movie_star_table AS (
