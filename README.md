@@ -35,15 +35,15 @@ The data model as follows:
 
 **Conceptual Data Model**
 
-![alt text](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/conceptual_erd.png)
+![alt text](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/er_diagram/conceptual_erd.png)
 
 **Logical Data Model**
 
-![alt text](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/logical_erd.png)
+![alt text](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/er_diagram/logical_erd.png)
 
 **Physical Data Model**
 
-![alt text](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/physical_erd.png)
+![alt text](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/er_diagram/physical_erd.png)
 
 The entities that are used to create a data model as follows:
 1. **movies**:
@@ -69,7 +69,7 @@ The entities that are used to create a data model as follows:
    
 ### Database Creation
 
-The database are created by using **CREATE TABLE** and **ALTER TABLE** (for constraints) statement in the PostgreSQL. The query is at [create_table_with_constraints.sql](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/create_table_with_constraints.sql).
+The database are created by using **CREATE TABLE** and **ALTER TABLE** (for constraints) statement in the PostgreSQL. The query is at [create_table_with_constraints.sql](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/query_script/create_table_with_constraints.sql).
 
 ### ETL Pipeline
 
@@ -92,7 +92,7 @@ The step-by-step of ETL pipeline as follows:
    * Build a connection to postgres database then ingest each table by using pandas.
 
 ### Query
-All necessary data have been imported to the created database. The following below are the query for specific tasks. You can run the query with this file [here](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/query.sql).
+All necessary data have been imported to the created database. The following below are the query for specific tasks. You can run the query with this file [here](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/query_script/query.sql).
 
 #### a. Number of unique film titles
 ```
