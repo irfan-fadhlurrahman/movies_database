@@ -26,8 +26,8 @@ From this raw dataset, we have to:
     * Number of unique film titles
     * Film Title, Year of Release, and Rating of the film starring Lena Headey Sort By Year of Release.
     * The name of the director and total gross of the films that have been directed.
-    * Film Title, Year of Release, and Rating of 5 films that have comedy genre with the largest gross
-    * Film Title, Year of Release and Rating of the film directed by Martin Scorsese and starring Robert De Niro
+    * Film Title, Year of Release, and Rating of 5 films that have comedy genre with the largest gross.
+    * Film Title, Year of Release and Rating of the film directed by Martin Scorsese and starring Robert De Niro.
     
 ### Data Model
 
