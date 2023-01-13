@@ -65,10 +65,10 @@ The database is created by using **CREATE TABLE** statement in the PostgreSQL. T
 
 There are five scripts to build the ETL pipeline for importing the movies.csv dataset into created database such
 * [database_credentials.py](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/database_credentials.py): To define the absolute path of folder and the data type of each attributes for ingestion with pandas.
-* [cleaning.py](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/cleaning.py)
-* [transform.py](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/transform.py)
-* [ingest.py](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/ingest.py)
-* [etl.py](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/etl.py)
+* [cleaning.py](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/cleaning.py): To perform data cleaning on the dataset.
+* [transform.py](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/transform.py): To seperate the cleaned dataset into seven dataset for storing in the relational database.
+* [ingest.py](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/ingest.py): To ingest all of seven dataset into the created database.
+* [etl.py](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/etl.py): To run all four scripts above as one script.
 
 The step-by-step of ETL pipeline as follows:
 1. Extract
@@ -82,7 +82,7 @@ The step-by-step of ETL pipeline as follows:
    * Build a connection to postgres database then ingest each table by using pandas.
 
 ### Query
-All neccessary data have been imported to the created database. The following below are the query for specific tasks. You can run the query with this file [here]().
+All neccessary data have been imported to the created database. The following below are the query for specific tasks. You can run the query with this file [here](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/query.sql).
 
 #### a. Number of unique film titles
 ```
