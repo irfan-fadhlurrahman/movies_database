@@ -96,7 +96,7 @@ All necessary data have been imported to the created database. The following bel
 
 ### a. Number of unique film titles
 Query results: [Task_4a.csv](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/query_result/Task_4a.csv)
-```
+```sql
 SELECT 
 	COUNT(DISTINCT(title)) AS num_of_unique_film_titles
 FROM 
@@ -105,7 +105,7 @@ FROM
 
 ### b. Film Title, Year of Release, and Rating of the film starring Lena Headey Sort By Year of Release
 Query results: [Task_4b.csv](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/query_result/Task_4b.csv)
-```
+```sql
 WITH movie_star_table AS (
 	SELECT 
 		ms.movie_id, 
@@ -146,7 +146,7 @@ ORDER BY
 
 ### c. The name of the director and total gross of the films that have been directed
 Query results: [Task_4c.csv](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/query_result/Task_4c.csv)
-```
+```sql
 WITH movie_director_table AS (
 	SELECT 
 		md.movie_id, 
@@ -175,7 +175,7 @@ GROUP BY
 
 #### d. Film Title, Year of Release, and Rating of 5 films that have comedy genre with the largest gross
 Query results: [Task_4d.csv](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/query_result/Task_4d.csv)
-```
+```sql
 WITH genre_comedy AS (
 	SELECT 
 		mg.movie_id, 
@@ -217,7 +217,7 @@ LIMIT
 
 ### e. Film Title, Year of Release and Rating of the film directed by Martin Scorsese and starring Robert De Niro
 Query results: [Task_4e.csv](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/query_result/Task_4e.csv)
-```
+```sql
 WITH movie_star_table AS (
 	SELECT 
 		ms.movie_id, 
