@@ -2,7 +2,7 @@
 
 Here are the tools and libraries that were used for this code test.
 * Programming Language: Python 3.9, SQL
-* Relational database: PostgreSQL 14, pgAdmin 4
+* Relational database: PostgreSQL 13, pgAdmin 4
 * Libraries: Regex, Pandas, Numpy, SQLAlchemy, Psycopg2-binary
 
 Both PostgreSQL and pgAdmin are run on the Docker Container. Please check this [link](https://github.com/irfan-fadhlurrahman/nyc_taxi_trips/tree/main/postgres_pgadmin) for configuration.
