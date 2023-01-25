@@ -18,7 +18,7 @@ Raw dataset, [movies.csv](https://github.com/irfan-fadhlurrahman/movies_database
 * **RunTime**: total duration of the movie.
 * **Gross**: Total revenue of the movie.
 
-From this raw dataset, we have to:
+From this raw dataset, we do the following task such as:
 1. Create a data model to describe entities, attributes, and relationships.
 2. Create a database based on the data model that has been created.
 3. Create an ETL pipeline to collect, transform, and ingest the data into the created database.
