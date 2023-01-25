@@ -1,11 +1,11 @@
-## Code Test - Data Engineer
+# Movies Database
 
 Here are the tools and libraries that were used for this code test.
 * Programming Language: Python 3.8, SQL
 * Relational database: PostgreSQL 14, pgAdmin 4
 * Libraries: Regex, Pandas, Numpy, SQLAlchemy, Psycopg2-binary
 
-### Background
+## Background
 
 Raw dataset, [movies.csv](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/movies.csv) contains information about movies that include films and tv shows. This raw dataset have the following columns such as:
 * **MOVIES**: the title of a film or a tv show.
@@ -29,7 +29,7 @@ From this raw dataset, we have to:
     * Film Title, Year of Release, and Rating of 5 films that have comedy genre with the largest gross.
     * Film Title, Year of Release and Rating of the film directed by Martin Scorsese and starring Robert De Niro.
     
-### Data Model
+## Data Model
 
 The data model as follows:
 
@@ -67,11 +67,11 @@ The entities that are used to create a data model as follows:
 6. **movies_star**:
    This entity contains **star_id**, **movie_id**, and **person_id** to connect the relationship between person entity and movie entity.
    
-### Database Creation
+## Database Creation
 
 The database are created by using **CREATE TABLE** and **ALTER TABLE** (for constraints) statement in the PostgreSQL. The query is at [create_table_with_constraints.sql](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/query_script/create_table_with_constraints.sql).
 
-### ETL Pipeline
+## ETL Pipeline
 
 There are five scripts to build the ETL pipeline for importing the movies.csv dataset into created database such
 * [database_credentials.py](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/database_credentials.py): To create an engine for database connection to Python and to define absolute path of a folder and the data type of each attributes for ingestion with pandas.
@@ -91,17 +91,17 @@ The step-by-step of ETL pipeline as follows:
 3. Load
    * Build a connection to postgres database then ingest each table by using pandas.
 
-### Query
+## Query
 All necessary data have been imported to the created database. The following below are the query for specific tasks. You can run the query with this file [here](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/query_script/query.sql).
 
-#### a. Number of unique film titles
+### a. Number of unique film titles
 Query results: [Task_4a.csv](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/query_result/Task_4a.csv)
 ```
 SELECT COUNT(DISTINCT(title)) AS num_of_unique_film_titles
 FROM movies;
 ```
 
-#### b. Film Title, Year of Release, and Rating of the film starring Lena Headey Sort By Year of Release
+### b. Film Title, Year of Release, and Rating of the film starring Lena Headey Sort By Year of Release
 Query results: [Task_4b.csv](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/query_result/Task_4b.csv)
 ```
 -- First Join
@@ -127,7 +127,7 @@ JOIN rating_and_person_table AS rpt
 	ON m.movie_id = rpt.movie_id
 ORDER BY m.release_year;
 ```
-#### c. The name of the director and total gross of the films that have been directed
+### c. The name of the director and total gross of the films that have been directed
 Query results: [Task_4c.csv](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/query_result/Task_4c.csv)
 ```
 -- First Join
@@ -171,7 +171,7 @@ ORDER BY m.gross DESC
 LIMIT 5;
 ```
 
-#### e. Film Title, Year of Release and Rating of the film directed by Martin Scorsese and starring Robert De Niro
+### e. Film Title, Year of Release and Rating of the film directed by Martin Scorsese and starring Robert De Niro
 Query results: [Task_4e.csv](https://github.com/irfan-fadhlurrahman/movies_database/blob/main/query_result/Task_4e.csv)
 ```
 -- First Join
